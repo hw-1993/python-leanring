@@ -46,6 +46,11 @@ def multiplication_table():
 
 
 def is_prime_number(num):
+    """
+    素数指的是只能被1和自身整除的正整数（不包括1）。
+    :param num:
+    :return:
+    """
     is_prime = True
     for i in range(2, num):
         if num % i == 0:
