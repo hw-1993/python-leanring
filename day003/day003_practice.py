@@ -90,6 +90,17 @@ def triangle_display(line):
         print()
 
 
+def calc_gcd(x, y):
+    (x, y) = (y, x) if x > y else (x, y)
+    for factor_ in range(x, 0, -1):
+        if x % factor_ == 0 and y % factor_ == 0:
+            return factor_
+
+
+def calc_lcm(x, y):
+    return x * y // calc_gcd(x, y)
+
+
 if __name__ == '__main__':
     sum100()
     sum_old(200)
@@ -110,5 +121,8 @@ if __name__ == '__main__':
             print('%d 和 %d 的最大公约数为 %d' % (num1, num2, factor))
             print('%d 和 %d 的最小公倍数为 %d' % (num1, num2, num1 * num2 // factor))
             break
+
+    print('%d 和 %d 的最大公约数为 %d' % (num1, num2, calc_gcd(num1, num2)))
+    print('%d 和 %d 的最小公倍数为 %d' % (num1, num2, calc_lcm(num1, num2)))
 
     guess_number_game()
